@@ -2,6 +2,26 @@ body {
   padding-top: 40px;
 }
 
+h1 {
+  text-align: center;
+  margin-bottom: 15px;
+  font-size: 2.1em;
+  letter-spacing: -1.45px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 0px;
+  font-family: Impact, Charcoal, sans-serif;
+}
+
+a {
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
 .navHeader {
   position: fixed;
   top: 0;
@@ -37,7 +57,7 @@ body {
 }
 
 .center {
-  margin: auto 0;
+  margin: 0 auto;
 }
 
 .content {
@@ -65,4 +85,141 @@ body {
 
 #welcome > p {
   display: inline-block;
+}
+
+form.cbxForm {
+  -moz-border-radius: 6px;
+  -webkit-border-radius: 6px;
+  background: none repeat scroll 0 0 white;
+  border: 1px solid #D0D7E5;
+  border-radius: 6px;
+  margin: 4px;
+  width: 300px;
+  background-color: #FFEC93;
+}
+
+form.cbxForm.wid4 {
+  width: 400px;
+}
+
+form.cbxForm label {
+  display: inline-block;
+  line-height: 1.8;
+  vertical-align: top;
+  color: #999;
+  font-weight: bold;
+  margin-left: 10px;
+  padding-right: 3px;
+  width: 75px;
+}
+
+form.cbxForm textarea {
+  width: 250px;
+  height: 50px;
+}
+
+form.cbxForm.med label {
+  width: 100px;
+}
+
+div.txtCenter {
+  text-align: center
+}
+
+input[type="button"], 
+input[type="submit"] {
+  width:100px;
+}
+
+form.cbxForm.center {
+ margin: 0 auto;
+}
+
+.feed {
+  text-align: center;
+}
+
+.feed article {
+  -moz-border-radius: 6px;
+  -webkit-border-radius: 6px;
+  background: none repeat scroll 0 0 white;
+  border: 1px solid #D0D7E5;
+  border-radius: 6px;
+  margin: 4px;
+}
+
+.feed article > h3 > a {
+  color: #D23A52;
+}
+
+.feed article > h3 > .editB {
+  padding: 15px;
+  font-size: 12px;
+}
+
+.feed article > h3 > .editB > a {
+  color: #444;
+}
+
+.feed div > a {
+  color: #999;
+  font-size: 13px;
+  margin-left: 10px;
+}
+.feed div > span {
+  color: #D8BC3B;
+  font-weight: bold;
+  margin-left: 5px;
+  letter-spacing: -1.5px;
+}
+
+#user_feed #profile {
+  margin: 0 auto;
+  width: 200px;
+}
+
+#user_feed dt {
+  color: #999;
+}
+
+.follow {
+  margin: 15px;
+  text-align: center;
+}
+
+.follow > a {
+  color: #444;
+  margin-right: 10px;
+  margin-left: 10px;
+}
+
+.createB { 
+  margin-right: 10px;
+  margin-left: 10px;
+}
+
+.createB a {
+  color: #3786B0;
+}
+
+#show_bookmark {
+  text-align: center;
+}
+
+#show_bookmark h5 > a {
+  color: #999;
+}
+
+.rating {
+  color: #D8BC3B;
+  font-weight: bold;
+  margin-left: 5px;
+  letter-spacing: -1.5px;
+}
+
+.tags {
+  color: #62BBEB;
+  font-weight: bold;
+  margin-left: 5px;
+  letter-spacing: -1.5px;
 }
