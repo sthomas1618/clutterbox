@@ -40,18 +40,15 @@ data =  JSON.parse(open("http://#{base}?method=#{method}&api_key=#{key}&per_page
 photos = data["photos"]["photo"]
 
 photos.each do |p|
+	href = "http://www.flickr.com/photos/#{p["owner"]}/#{p["id"]}"
 	puts "<article>"
   puts "<h3>"
-  puts "<a href=\"http://www.google.com\"> Google: a wonderful search engine </a>"
+  puts "<a href=\"#{href}\"> #{p["title"]} </a>"
   puts "</h3>"
   puts "<div>"      
-  puts "<a href=\"http://www.google.com\">google.com</a>"
+  puts "<a href=\"#{href}\">#{href}</a>"
   puts "<span> 5 stars </span>"
   puts "</div>"
-  puts "<p>
-          Google is the number one search engine in the world. 
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
-  </p>"
   puts "</article>"
 end
 
