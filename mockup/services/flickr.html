@@ -32,13 +32,27 @@ puts "<br>"
 
 puts "Hello dynamic world --  #{Time.now}"
 
-data =  JSON.parse(open("http://api.flickr.com/services/rest/?method=flickr.interestingness.getList&api_key=93495371bb07d95434cc9c821fec740c&per_page=20&format=json&nojsoncallback=1").read)
+base = "api.flickr.com/services/rest/" 
+method = "flickr.interestingness.getList"
+key = "93495371bb07d95434cc9c821fec740c"
+data =  JSON.parse(open("http://#{base}?method=#{method}&api_key=#{key}&per_page=20&format=json&nojsoncallback=1").read)
 
 photos = data["photos"]["photo"]
 
 photos.each do |p|
-	puts p.inspect
-	puts "<br>"
+	puts "<article>"
+  puts "<h3>"
+  puts "<a href=\"http://www.google.com\"> Google: a wonderful search engine </a>"
+  puts "</h3>"
+  puts "<div>"      
+  puts "<a href=\"http://www.google.com\">google.com</a>"
+  puts "<span> 5 stars </span>"
+  puts "</div>"
+  puts "<p>
+          Google is the number one search engine in the world. 
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
+  </p>"
+  puts "</article>"
 end
 
 puts "    </section>"
