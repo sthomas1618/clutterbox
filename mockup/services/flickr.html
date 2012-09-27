@@ -1,5 +1,6 @@
 #!/usr/bin/env ruby
 require 'open-uri'
+require 'json'
 
 puts "Content-type: text/html"
 puts
@@ -27,13 +28,18 @@ puts "  </header>"
 puts "  <div class=\"content\">"
 puts "    <h1>Bookmarks tagged with <span class=\"headerTag\">Chico</span></h1>"
 puts "    <section id=\"bookmarks\" class=\"feed\">"      
-
+puts "<br>"
 
 puts "Hello dynamic world --  #{Time.now}"
 
-uri = URI.parse("http://api.flickr.com/services/rest/?method=flickr.interestingness.getList&api_key=93495371bb07d95434cc9c821fec740c&per_page=20&format=json&nojsoncallback=1")
-str = uri.read
-puts str
+data =  JSON.parse(open("http://api.flickr.com/services/rest/?method=flickr.interestingness.getList&api_key=93495371bb07d95434cc9c821fec740c&per_page=20&format=json&nojsoncallback=1").read)
+
+photos = data["photos"]["photo"]
+
+photos.each do |p|
+	puts p.inspect
+	puts "<br>"
+end
 
 puts "    </section>"
 puts "  </div>"
