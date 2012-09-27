@@ -1,4 +1,6 @@
 #!/usr/bin/env ruby
+require 'open-uri'
+
 puts "Content-type: text/html"
 puts
 puts "<!DOCTYPE html>"
@@ -28,6 +30,10 @@ puts "    <section id=\"bookmarks\" class=\"feed\">"
 
 
 puts "Hello dynamic world --  #{Time.now}"
+
+uri = URI.parse("http://api.flickr.com/services/rest/?method=flickr.interestingness.getList&api_key=93495371bb07d95434cc9c821fec740c&per_page=20&format=json&nojsoncallback=1")
+str = uri.read
+puts str
 
 puts "    </section>"
 puts "  </div>"
