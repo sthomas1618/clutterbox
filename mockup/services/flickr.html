@@ -41,7 +41,7 @@ photos = data["photos"]["photo"]
 
 photos.each do |p|
 	href = "http://www.flickr.com/photos/#{p["owner"]}/#{p["id"]}"
-	image = "http://farm#{p["farm"]}.staticflickr.com/#{p["server"]}/#{p["id"]}_#{p["secret"]}_q.jpg"
+	image = "http://farm#{p["farm"]}.staticflickr.com/#{p["server"]}/#{p["id"]}_#{p["secret"]}_m.jpg"
 	puts "<article>"
   puts "<h3>"
   puts "<a href=\"#{href}\"> #{p["title"]} </a>"
