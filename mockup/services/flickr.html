@@ -42,9 +42,10 @@ photos = data["photos"]["photo"]
 photos.each do |p|
 	href = "http://www.flickr.com/photos/#{p["owner"]}/#{p["id"]}"
 	image = "http://farm#{p["farm"]}.staticflickr.com/#{p["server"]}/#{p["id"]}_#{p["secret"]}_m.jpg"
+	title = p["title"]
 	puts "<article>"
   puts "<h3>"
-  puts "<a href=\"#{href}\"> #{p["title"]} </a>"
+  puts "<a href=\"#{href}\"> #{title.empty? ? "Untitled" : title} </a>"
   puts "</h3>"
   puts "<div>"      
   puts "<a href=\"#{href}\">#{href}</a>"
