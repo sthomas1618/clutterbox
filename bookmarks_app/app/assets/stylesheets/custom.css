@@ -152,12 +152,12 @@ form.cbxForm.center {
   color: #D23A52;
 }
 
-.feed article > h3 > .editB {
+.editB {
   padding: 15px;
   font-size: 12px;
 }
 
-.feed article > h3 > .editB > a {
+.editB > a {
   color: #444;
 }
 

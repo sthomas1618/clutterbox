@@ -1,0 +1,24 @@
+<p>
+  <%= f.label :url %>
+  <%= f.url_field :url, :required => true %>
+</p>
+<p>
+  <%= f.label :title %>
+  <%= f.text_field :title, :required => true %>
+</p>
+<p>
+  <%= f.label :rating %>
+  <%= select :bookmark, :rating, 1..5 %>
+</p>
+<p>
+  <%= f.label :notes %>
+  <%= f.text_area :notes %>
+</p>
+<p>
+  <%= f.label :private %>
+  <%= f.check_box :private %>
+</p>
+<p>
+  <%= f.label :tags %>
+  <%= f.text_area :tags %>
+</p>

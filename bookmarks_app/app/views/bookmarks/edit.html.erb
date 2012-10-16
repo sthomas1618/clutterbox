@@ -1,0 +1,6 @@
+<h1> Update Bookmark </h1>
+<%= form_for :bookmark, url: bookmark_path(params[:id]), method: :put,
+    html: { :class => "cbxForm center med wid4"} do |f| %>
+  <%= render 'bookmark_fields', f: f %>
+  <%= submit_tag "Update" %>
+<% end %>

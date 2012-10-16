@@ -1,0 +1,22 @@
+<section id="show_bookmark">
+  <h1>
+    <%= link_to @bookmark[:title], @bookmark[:url] %>
+  </h1>
+  <h5>
+    <%= link_to @bookmark[:url], @bookmark[:url] %>
+    <span class="editB">
+      <%= link_to "Edit", edit_bookmark_path(@index) %>
+      <%= link_to "Remove", bookmark_path(@index), method: :delete,
+                  data: { confirm: "Remove Bookmark?" } %>
+    </span>
+  </h5>
+  <p id="notes">
+    <%= @bookmark[:description] %>
+  </p>
+  <article>
+    <span class="rating"> <%= @bookmark[:rating] %> Stars </span>
+    <p id="tags" class="tags">
+      <%= @bookmark[:tags] %>
+    </p>     
+  </article> 
+</section>
