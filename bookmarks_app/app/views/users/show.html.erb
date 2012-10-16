@@ -1,24 +1,24 @@
 <div id="user_feed" class="center">
   <h1>
-    Joe User (username)
+    <%= @user[:username] %>
   </h1>
   <dl id="profile">
     <dt>
-      Name
+       Name
     </dt>
     <dd>
-      Joe Smoe
+      <%= @user[:first_name] + " " + @user[:last_name] %>
     </dd>
     <dt>
       Email
     </dt>
     <dd>
-      joeuser@example.com
+      <%= @user[:email] %>
     </dd>
   </dl>
   <div class="follow">
-    <a href="joe_user/followers.html" > xx Followers </a>
-    <a href="joe_user/followings.html" > Following xx </a>
+    <a href="joe_user/followers.html" > <%= @user[:followers] %> Followers </a>
+    <a href="joe_user/followings.html" > Following <%= @user[:following] %> </a>
   </div>
   <h4 class="createB">
     <a href="../bookmarks/new.html"> New Bookmark </a>

@@ -26,22 +26,33 @@ class UsersController < ApplicationController
     redirect_to user_path(1)
   end
 
+  def destroy
+    flash[:success] = "Removed user."
+    redirect_to users_path
+  end
+
   def all_users
     [
       { first_name: "Billy", 
         last_name:  "Bob",
         username:   "BBob",
         email:      "bbob@gmail.com",
-        password:   "password"},
+        password:   "password",
+        followers:  "2",
+        following:  "4"},
       { first_name: "Joe", 
         last_name:  "Smoe",
         username:   "Smoelester",
         email:      "smoe@gmail.com",
-        password:   "password"},
+        password:   "password",
+        followers:  "2",
+        following:  "4"},
       { first_name: "Sarah", 
         last_name:  "Connor",
         username:   "ihaterobots",
         email:      "skynetsucks@gmail.com",
-        password:   "password"}]
+        password:   "password",
+        followers:  "2",
+        following:  "4"}]
   end
 end

@@ -3,10 +3,13 @@
     <a id="logo">ClutterBox</a>
     <nav>
       <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="bookmarks/popular.html">Popular</a></li>
+        <li><%= link_to "Home", user_path(1) %></li>
+        <li><%= link_to "Popular", bookmarks_path %></li>
         <li><a href="tags/chico.html">Tags</a></li>
-        <li><a href="login.html">Sign In</a></li>
+        <li><%= link_to "Users", users_path %></li>
+        <li><%= link_to "Sign Up", signup_path %></li>
+        <li><%= link_to "Account", edit_user_path(1) %></li>
+        <li><a href="../index.html">Logout</a></li>
       </ul>
     </nav>
   </div>
