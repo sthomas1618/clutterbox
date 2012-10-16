@@ -1,0 +1,5 @@
+<h1> Create Account </h1>
+<%= form_for :user, url: users_path, html: { :class => "cbxForm center med"} do |f| %>
+  <%= render 'user_fields', f: f %>
+  <%= submit_tag "Sign up" %>
+<% end %>
