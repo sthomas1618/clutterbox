@@ -1,32 +1,44 @@
 class UsersController < ApplicationController
 
   def index
-    @users = all_users
+    @users = User.all
   end
 
   def show 
-    @user = all_users[params[:id].to_i]
+    @user = User.find(params[:id])
   end
 
   def new
-    
+    @user = User.new
   end
 
   def create
-    flash[:success] = "Welcome Cluterbox!"
-    redirect_to user_path(1)
+    @user = User.new(params[:user])
+    if (@user.save)
+      flash[:success] = "Welcome Clutterbox!"
+      redirect_to @user
+    else
+      render 'new'
+    end
   end
 
   def edit
-    
+    @user = User.find(params[:id])
   end
 
   def update
-    flash[:success] = "Updated Account"
-    redirect_to user_path(1)
+    if @user.update_attributes(params[:user])
+      flash[:success] = "Updated Account"
+      sign_in @user
+      redirect_to @user
+    else
+      render 'edit'
+    end
   end
 
   def destroy
+    user_to_destroy = User.find(params[:id])
+    user_to_destroy.destroy
     flash[:success] = "Removed user"
     redirect_to users_path
   end

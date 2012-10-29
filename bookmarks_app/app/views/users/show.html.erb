@@ -1,46 +1,46 @@
 <div id="user_feed" class="center">
   <h1>
-    <%= @user[:username] %>
+    <%= @user.username %>
   </h1>
   <dl id="profile">
     <dt>
        Name
     </dt>
     <dd>
-      <%= @user[:first_name] + " " + @user[:last_name] %>
+      <%= @user.first_name + " " + @user.last_name %>
     </dd>
     <dt>
       Email
     </dt>
     <dd>
-      <%= @user[:email] %>
+      <%= @user.email %>
     </dd>
   </dl>
   <div class="follow">
-    <a href="joe_user/followers.html" > <%= @user[:followers] %> Followers </a>
-    <a href="joe_user/followings.html" > Following <%= @user[:following] %> </a>
+    <a href="joe_user/followers.html" > blank Followers </a>
+    <a href="joe_user/followings.html" > Following blank </a>
   </div>
   <h4 class="createB">
     <%= link_to "New Bookmark", new_bookmark_path %>
   </h4>
   <section id="bookmarks" class="feed">
-    <% @user[:bookmarks].each_with_index do |bookmark, index| %>
+    <% @user.bookmarks do |bookmark| %>
       <article>
           <h3>
-            <%= link_to bookmark[:title], bookmark[:url] %>
+            <%= link_to bookmark.title, bookmark.url %>
             <span class="editB">
-               <%= link_to "View", bookmark_path(index) %>
-               <%= link_to "Edit", edit_bookmark_path(index) %>
-               <%= link_to "Remove", bookmark_path(index), method: :delete,
+               <%= link_to "View", bookmark_path(bookmark) %>
+               <%= link_to "Edit", edit_bookmark_path(bookmark) %>
+               <%= link_to "Remove", bookmark_path(bookmark), method: :delete,
                            data: { confirm: "Remove Bookmark?" } %>
             </span>
           </h3>
           <div>      
-            <%= link_to bookmark[:domain], bookmark[:url] %>
-            <span> <%= bookmark[:rating] %> stars </span>
+            <%= link_to bookmark.domain, bookmark.url %>
+            <span> <%= bookmark.rating %> stars </span>
           </div>
           <p>
-            <%= bookmark[:description] %>
+            <%= bookmark.notes %>
           </p>
         </article>
     <% end %>
