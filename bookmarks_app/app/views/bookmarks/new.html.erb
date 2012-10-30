@@ -1,5 +1,5 @@
 <h1> Create a Bookmark </h1>
-<%= form_for :bookmark, url: bookmarks_path, html: { :class => "cbxForm center med wid4"} do |f| %>
+<%= form_for(@bookmark, html: { :class => "cbxForm center med wid4"}) do |f| %>
   <%= render 'bookmark_fields', f: f %>
-  <%= submit_tag "Create" %>
+  <%= f.submit "Create" %>
 <% end %>

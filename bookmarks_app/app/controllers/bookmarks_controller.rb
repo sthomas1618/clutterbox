@@ -1,30 +1,42 @@
 class BookmarksController < ApplicationController
 
   def index
-    @bookmarks = all_bookmarks
+    @bookmarks = Bookmark.all
+  end
+
+  def index
+    @bookmarks = Bookmark.all
   end
 
   def show 
-    @bookmark = all_bookmarks[params[:id].to_i]
-    @index = params[:id]
+    @bookmark = Bookmark.find(params[:id])
   end
 
   def new
-    
+    @bookmark = Bookmark.new
   end
 
   def create
-    flash[:success] = "Bookmarked!"
-    redirect_to bookmark_path(1)
+    @bookmark = Bookmark.new(params[:bookmark])
+    if (@bookmark.save)
+      flash[:success] = "Bookmarked!"
+      redirect_to @bookmark
+    else
+      render 'new'
+    end
   end
 
   def edit
-
+    @bookmark = Bookmark.find(params[:id])
   end
 
   def update
-    flash[:success] = "Updated Bookmark"
-    redirect_to bookmark_path(1)
+    if @bookmark.update_attributes(params[:bookmark])
+      flash[:success] = "Updated Bookmark"
+      redirect_to @bookmark
+    else
+      render 'edit'
+    end
   end
 
   def destroy

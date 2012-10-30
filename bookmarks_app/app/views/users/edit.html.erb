@@ -1,5 +1,5 @@
 <h1> Edit Account </h1>
 <%= form_for(@user, html: { :class => "cbxForm center med"}) do |f| %>
   <%= render 'user_fields', f: f %>
-  <%= submit_tag "Update" %>
+  <%= f.submit "Update" %>
 <% end %>
