@@ -1,0 +1,4 @@
+<h1><%= @tag.name %></h1>
+<section id="tagged_feed" class="feed">
+  <%= render partial: 'bookmarks/bookmark_item', collection: @bookmarks, :as => :bookmark %>
+</section>
