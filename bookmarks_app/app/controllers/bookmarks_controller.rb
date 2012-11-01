@@ -1,9 +1,5 @@
 class BookmarksController < ApplicationController
 
-  def index
-    @bookmarks = Bookmark.all
-  end
-
   def popular
     @bookmarks =Bookmark.find(:all, order: "view_count DESC")
   end

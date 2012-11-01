@@ -243,14 +243,22 @@ form.cbxForm.center {
   padding: 7px;
 }
 
-.tag a {
+.tag a.item {
+  color: #62BBEB;
+}
+
+.tag a.item:hover {
+  color: #32BBEB;
+}
+
+.tag a.remove {
   border-radius: 7px;
   background-color: #D14836;
   padding: 1px 1px;
   margin-left: 4px;
 }
 
-.tag a:hover {
+.tag a.remove:hover {
   padding: 3px;
   background-color: #E14836;
 }

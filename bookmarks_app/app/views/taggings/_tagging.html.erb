@@ -1,6 +1,6 @@
 <span class="tag">
   <span>
-  <%= tagging.tag.name %>
-  <%= link_to "x", bookmark_tagging_path(tagging.bookmark_id, tagging.id), method: :delete %>
+    <%= link_to tagging.tag.name, tag_path(tagging.tag), class: "item" %>
+    <%= link_to "x", bookmark_tagging_path(tagging.bookmark_id, tagging.id), method: :delete, class: "remove" %>
   </span>
 </span>
