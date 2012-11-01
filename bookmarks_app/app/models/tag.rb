@@ -17,4 +17,8 @@ class Tag < ActiveRecord::Base
  
   WHOLE_WORD_REGEX = /\A\w+\Z/
   validates :name, presence: true, format: { with: WHOLE_WORD_REGEX }
+
+  def to_param
+  	name
+  end
 end
