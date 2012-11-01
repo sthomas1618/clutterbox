@@ -4,12 +4,16 @@ class BookmarksController < ApplicationController
     @bookmarks = Bookmark.all
   end
 
-  def index
-    @bookmarks = Bookmark.all
+  def popular
+    Bookmark.find(:all, :order => "view_count")
   end
 
   def show 
     @bookmark = Bookmark.find(params[:id])
+    @bookmark.increment(:view_count)
+    @bookmark.save
+    @taggings = @bookmark.taggings
+    @tag  = @bookmark.tags.build
   end
 
   def new
@@ -28,9 +32,11 @@ class BookmarksController < ApplicationController
 
   def edit
     @bookmark = Bookmark.find(params[:id])
+    @users = User.all
   end
 
   def update
+    @bookmark = Bookmark.find(params[:id])
     if @bookmark.update_attributes(params[:bookmark])
       flash[:success] = "Updated Bookmark"
       redirect_to @bookmark

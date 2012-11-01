@@ -12,4 +12,9 @@ class Tag < ActiveRecord::Base
   attr_accessible :name
   has_many :taggings
   has_many :bookmarks, through: :taggings
+
+  before_save { |tag| tag.name = name.downcase }
+ 
+  WHOLE_WORD_REGEX = /\A\w+\Z/
+  validates :name, presence: true, format: { with: WHOLE_WORD_REGEX }
 end

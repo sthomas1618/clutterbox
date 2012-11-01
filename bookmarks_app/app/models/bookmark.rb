@@ -24,4 +24,8 @@ class Bookmark < ActiveRecord::Base
   validates :url,  presence: true
   validates :title, presence: true
   validates :rating, presence: true
+
+  def domain
+    URI.parse(url).host.gsub(/\Awww\./, "") 
+  end
 end

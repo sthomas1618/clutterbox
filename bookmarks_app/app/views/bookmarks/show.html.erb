@@ -1,22 +1,27 @@
 <section id="show_bookmark">
   <h1>
-    <%= link_to @bookmark[:title], @bookmark[:url] %>
+    <%= link_to @bookmark.title, @bookmark.url %>
   </h1>
   <h5>
-    <%= link_to @bookmark[:url], @bookmark[:url] %>
+    <%= link_to @bookmark.url, @bookmark.url %>
     <span class="editB">
-      <%= link_to "Edit", edit_bookmark_path(@index) %>
-      <%= link_to "Remove", bookmark_path(@index), method: :delete,
+      <%= link_to "Edit", edit_bookmark_path(@bookmark) %>
+      <%= link_to "Remove", bookmark_path(@bookmark), method: :delete,
                   data: { confirm: "Remove Bookmark?" } %>
     </span>
   </h5>
   <p id="notes">
-    <%= @bookmark[:description] %>
+    <%= @bookmark.notes %>
   </p>
   <article>
-    <span class="rating"> <%= @bookmark[:rating] %> Stars </span>
+    <span class="rating"> <%= @bookmark.rating %> Stars </span>
     <p id="tags" class="tags">
-      <%= @bookmark[:tags] %>
-    </p>     
+      <%= render @taggings %>
+    </p>   
+    <%= form_for(@tag, url: bookmark_taggings_path(@bookmark)) do |f| %>
+      <%= render 'shared/errors', object: f.object %>
+      <%= f.text_field :name, required: true, placeholder: "Add New Tag"  %>
+      <%= f.submit "Tag" %>
+    <% end %>  
   </article> 
 </section>

@@ -1,0 +1,18 @@
+<article>
+  <h3>
+    <%= link_to bookmark.title, bookmark.url %>
+    <span class="editB">
+       <%= link_to "View", bookmark_path(bookmark) %>
+       <%= link_to "Edit", edit_bookmark_path(bookmark) %>
+       <%= link_to "Remove", bookmark_path(bookmark), method: :delete,
+                   data: { confirm: "Remove Bookmark?" } %>
+    </span>
+  </h3>
+  <div>      
+    <%= link_to bookmark.domain, bookmark.url %>
+    <span> <%= bookmark.rating %> stars </span>
+  </div>
+  <p>
+    <%= bookmark.notes %>
+  </p>
+</article>

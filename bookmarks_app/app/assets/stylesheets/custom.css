@@ -19,7 +19,7 @@ a {
 }
 
 a:hover {
-  text-decoration: underline;
+  text-decoration: none;
 }
 
 .navHeader {
@@ -231,4 +231,26 @@ form.cbxForm.center {
   font-weight: bold;
   margin-left: 5px;
   letter-spacing: -1.5px;
+}
+
+.tag {
+  background-color: ghostWhite;
+  border-radius: 5px;
+  border: 1px solid #555;
+  margin: 2px;
+}
+.tag > span {
+  padding: 7px;
+}
+
+.tag a {
+  border-radius: 7px;
+  background-color: #D14836;
+  padding: 1px 1px;
+  margin-left: 4px;
+}
+
+.tag a:hover {
+  padding: 3px;
+  background-color: #E14836;
 }
