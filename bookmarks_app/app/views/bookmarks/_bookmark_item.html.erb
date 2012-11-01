@@ -1,0 +1,15 @@
+<article>
+  <h3>
+    <%= link_to bookmark.title, bookmark.url %>
+    <span class="editB">
+      <%= link_to "View", bookmark_path(bookmark) %>
+    </span>
+  </h3>
+  <div>      
+    <%= link_to bookmark.domain, bookmark.url %>
+    <span> <%= bookmark.rating %> stars </span>
+  </div>
+  <p>
+    <%= bookmark.notes %>
+  </p>
+</article>
