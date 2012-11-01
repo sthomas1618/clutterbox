@@ -20,6 +20,13 @@ class Bookmark < ActiveRecord::Base
   has_many :taggings
   has_many :tags, through: :taggings
 
+  before_save do |bookmark|
+    url = URI.parse(bookmark.url)
+    if(!url.scheme)
+      bookmark.url = bookmark.url.insert(0, "http://")
+    end
+  end
+
   validates :user_id, presence: true
   validates :url,  presence: true
   validates :title, presence: true

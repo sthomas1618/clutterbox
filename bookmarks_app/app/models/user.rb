@@ -17,6 +17,8 @@ class User < ActiveRecord::Base
   attr_accessible :first_name, :last_name, :username, :email, :password, :password_confirmation
   has_many :bookmarks
 
+  before_save { |user| user.username = username.downcase }
+
   validates :first_name, presence: true, length: { maximum: 50 }
   validates :last_name,  presence: true, length: { maximum: 50 }
   VALID_USERNAME_REGEX = /\A\w+\Z/
