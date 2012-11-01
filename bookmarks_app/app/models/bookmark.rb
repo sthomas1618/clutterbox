@@ -28,4 +28,8 @@ class Bookmark < ActiveRecord::Base
   def domain
     URI.parse(url).host.gsub(/\Awww\./, "") 
   end
+
+  def self.public
+    where(:private => false)
+  end
 end

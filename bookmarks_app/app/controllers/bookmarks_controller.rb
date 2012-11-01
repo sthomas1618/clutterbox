@@ -1,7 +1,7 @@
 class BookmarksController < ApplicationController
 
   def popular
-    @bookmarks = Bookmark.find(:all, order: "view_count DESC")
+    @bookmarks = Bookmark.public.order('view_count DESC')
   end
 
   def show 
