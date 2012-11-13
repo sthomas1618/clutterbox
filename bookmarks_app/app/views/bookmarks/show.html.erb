@@ -4,11 +4,13 @@
   </h1>
   <h5>
     <%= link_to @bookmark.url, @bookmark.url %>
-    <span class="editB">
-      <%= link_to "Edit", edit_bookmark_path(@bookmark) %>
-      <%= link_to "Remove", bookmark_path(@bookmark), method: :delete,
-                  data: { confirm: "Remove Bookmark?" } %>
-    </span>
+    <% if current_user?(@bookmark.user) %>
+      <span class="editB">
+        <%= link_to "Edit", edit_bookmark_path(@bookmark) %>
+        <%= link_to "Remove", bookmark_path(@bookmark), method: :delete,
+                    data: { confirm: "Remove Bookmark?" } %>
+      </span>
+    <% end %>
   </h5>
   <p id="notes">
     <%= @bookmark.notes %>
@@ -17,11 +19,13 @@
     <span class="rating"> <%= @bookmark.rating %> Stars </span>
     <p id="tags" class="tags">
       <%= render @taggings %>
-    </p>   
-    <%= form_for(@tag, url: bookmark_taggings_path(@bookmark)) do |f| %>
-      <%= render 'shared/errors', object: f.object %>
-      <%= f.text_field :name, required: true, placeholder: "Add New Tag"  %>
-      <%= f.submit "Tag" %>
-    <% end %>  
+    </p>
+    <% if current_user?(@bookmark.user) %>   
+      <%= form_for(@tag, url: bookmark_taggings_path(@bookmark)) do |f| %>
+        <%= render 'shared/errors', object: f.object %>
+        <%= f.text_field :name, required: true, placeholder: "Add New Tag"  %>
+        <%= f.submit "Tag" %>
+      <% end %>  
+    <% end %>
   </article> 
 </section>

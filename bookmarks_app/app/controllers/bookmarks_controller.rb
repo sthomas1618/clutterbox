@@ -1,4 +1,6 @@
 class BookmarksController < ApplicationController
+  before_filter :signed_in_user, only: [:create, :edit, :update, :destroy]
+  before_filter :correct_user,   only: [:edit, :update, :destroy]
 
   def popular
     @bookmarks = Bookmark.public.order('view_count DESC')
@@ -17,7 +19,7 @@ class BookmarksController < ApplicationController
   end
 
   def create
-    @bookmark = Bookmark.new(params[:bookmark])
+    @bookmark = @current_user.bookmarks.build(params[:bookmark])
     if (@bookmark.save)
       flash[:success] = "Bookmarked!"
       redirect_to @bookmark
@@ -27,12 +29,9 @@ class BookmarksController < ApplicationController
   end
 
   def edit
-    @bookmark = Bookmark.find(params[:id])
-    @users = User.all
   end
 
   def update
-    @bookmark = Bookmark.find(params[:id])
     if @bookmark.update_attributes(params[:bookmark])
       flash[:success] = "Updated Bookmark"
       redirect_to @bookmark
@@ -42,7 +41,15 @@ class BookmarksController < ApplicationController
   end
 
   def destroy
+    @bookmark.destroy
     flash[:success] = "Removed Bookmark"
-    redirect_to user_path(1)
+    redirect_to user_path(@current_user)
+  end
+  
+  private
+
+  def correct_user 
+    @bookmark = @current_user.bookmarks.find_by_id(params[:id])
+    redirect_to root_url if @bookmark.nil?
   end
 end

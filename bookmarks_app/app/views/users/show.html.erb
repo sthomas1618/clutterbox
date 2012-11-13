@@ -20,9 +20,11 @@
     <a href="joe_user/followers.html" > blank Followers </a>
     <a href="joe_user/followings.html" > Following blank </a>
   </div>
-  <h4 class="createB">
-    <%= link_to "New Bookmark", new_bookmark_path %>
-  </h4>
+  <% if current_user?(@user) %>
+    <h4 class="createB">
+      <%= link_to "New Bookmark", new_bookmark_path %>
+    </h4>
+  <% end %>
   <section id="bookmarks" class="feed">
     <%= render @bookmarks %>
   </section>

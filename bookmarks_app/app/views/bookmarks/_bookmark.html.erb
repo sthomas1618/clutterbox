@@ -2,10 +2,12 @@
   <h3>
     <%= link_to bookmark.title, bookmark.url %>
     <span class="editB">
-       <%= link_to "View", bookmark_path(bookmark) %>
-       <%= link_to "Edit", edit_bookmark_path(bookmark) %>
-       <%= link_to "Remove", bookmark_path(bookmark), method: :delete,
-                   data: { confirm: "Remove Bookmark?" } %>
+        <%= link_to "View", bookmark_path(bookmark) %>
+        <% if current_user?(bookmark.user) %>
+          <%= link_to "Edit", edit_bookmark_path(bookmark) %>
+          <%= link_to "Remove", bookmark_path(bookmark), method: :delete,
+              data: { confirm: "Remove Bookmark?" } %>
+        <% end %>
     </span>
   </h3>
   <div>      
