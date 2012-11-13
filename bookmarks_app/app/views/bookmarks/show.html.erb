@@ -12,6 +12,9 @@
       </span>
     <% end %>
   </h5>
+  <h3>
+    Created by <%= link_to @bookmark.user.username, @bookmark.user %>
+  </h3>
   <p id="notes">
     <%= @bookmark.notes %>
   </p>
