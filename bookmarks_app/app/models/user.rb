@@ -30,18 +30,9 @@ class User < ActiveRecord::Base
                     uniqueness: { case_sensitive: false }
   validates :password, presence: true, length: { minimum: 5 }
   validates :password_confirmation, presence: true
-  validate :passwords_match
 
   def to_param 
     username
-  end
-
-  private
-
-  def passwords_match 
-    if (password != password_confirmation) 
-      errors.add(:password, 'Passwords must match')
-    end
   end
 
 end
