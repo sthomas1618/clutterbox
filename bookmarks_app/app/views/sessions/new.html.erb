@@ -1,0 +1,18 @@
+<h1>Sign in</h1>
+<div>
+  <div>
+    <%= form_for(:session, url: sessions_path, html: { :class => "cbxForm center med"}) do |f| %>
+      <p>
+        <%= f.label :username %>
+        <%= f.text_field :username %>
+      </p>
+      <p>
+        <%= f.label :password %>
+        <%= f.password_field :password %>
+      </p>
+      <%= f.submit "Sign in" %>
+    <% end %>
+
+    <p> No Account? <%= link_to "Create one!", signup_path %></p>
+  </div>
+</div>

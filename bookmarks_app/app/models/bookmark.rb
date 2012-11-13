@@ -7,7 +7,7 @@
 #  url        :string(255)
 #  notes      :string(255)
 #  rating     :integer
-#  private    :boolean
+#  private    :boolean          default(FALSE)
 #  view_count :integer
 #  created_at :datetime         not null
 #  updated_at :datetime         not null

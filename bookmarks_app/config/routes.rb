@@ -2,6 +2,10 @@ BookmarksApp::Application.routes.draw do
 
   resources :users, :except => [:index, :new, :destroy]
 
+  match 'login'    => "sessions#new"
+  match 'sessions' => "sessions#create",  :via => :post
+  match 'logout'   => "sessions#destroy", :via => :delete
+
   resources :bookmarks, :except => [:index] do
     get 'popular', :on => :collection
     resources :taggings, :only => [:create, :destroy]

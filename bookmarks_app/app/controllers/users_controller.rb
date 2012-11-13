@@ -16,6 +16,7 @@ class UsersController < ApplicationController
   def create
     @user = User.new(params[:user])
     if (@user.save)
+      sign_in @user
       flash[:success] = "Welcome Clutterbox!"
       redirect_to @user
     else
@@ -24,11 +25,11 @@ class UsersController < ApplicationController
   end
 
   def edit
-    @user = User.find_by_username(params[:id])
+    @user = @current_user
   end
 
   def update
-    @user = User.find_by_username(params[:id])
+    @user = @current_user
     if @user.update_attributes(params[:user])
       flash[:success] = "Updated Account"
       redirect_to @user
