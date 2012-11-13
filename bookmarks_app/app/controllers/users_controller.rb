@@ -8,7 +8,8 @@ class UsersController < ApplicationController
 
   def show 
     @user = User.find_by_username(params[:id])
-    @bookmarks = @user.bookmarks
+    #@bookmarks = @user.bookmarks.public
+    @bookmarks = (signed_in? && current_user?(@user)) ? @user.bookmarks : @user.bookmarks.public
   end
 
   def new
