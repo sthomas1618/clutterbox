@@ -1,4 +1,4 @@
-BookmarksApp::Application.routes.draw do
+Clutterbox::Application.routes.draw do
 
   resources :users, :except => [:index, :new, :destroy]
 
@@ -14,7 +14,7 @@ BookmarksApp::Application.routes.draw do
   resources :tags, :only   => [:index, :show]
 
   match 'signup'  => "users#new"
-  root  :to       => "public_pages#home"  
+  root  :to       => "public_pages#home"
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
